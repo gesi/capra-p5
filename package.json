@@ -1,0 +1,42 @@
+{
+  "name": "generative",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "budo src/main.js -s index.js --live --open"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babelify": "^10.0.0",
+    "browserify": "^16.2.3",
+    "browserify-postcss": "^0.4.0",
+    "budo": "^11.6.2",
+    "require-globify": "^1.4.1"
+  },
+  "dependencies": {
+    "history": "^4.9.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime"
+    ]
+  },
+  "browserify": {
+    "transform": [
+      [
+        "browserify-postcss",
+        {
+          "inject": true
+        }
+      ],
+      "babelify",
+      "require-globify"
+    ]
+  }
+}
